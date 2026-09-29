@@ -9,6 +9,16 @@
 </head>
 <body>
 
+  <!-- ==================== NAVBAR GLOBAL (ÚNICO) ==================== -->
+  <header class="navbar" id="navbar-global" style="display: none;">
+    <div class="logo" onclick="irA('vista-inicio')">🐾 Patitas Felices</div>
+    <nav class="nav-links">
+      <button class="nav-btn" id="btn-nav-catalogo" onclick="irA('vista-catalogo')">Mascotas</button>
+      <button class="nav-btn" id="btn-nav-proceso" onclick="irA('vista-proceso')">¿Cómo adoptar?</button>
+      <button class="nav-btn" id="btn-nav-visita" onclick="irA('vista-visita')">Solicitar visita</button>
+    </nav>
+  </header>
+
   <!-- ==================== VISTA 1: INICIO / WELCOME ==================== -->
   <section id="vista-inicio" class="pantalla-completa vista-activa">
     <div class="decoracion-burbujas">
@@ -18,11 +28,11 @@
       <span class="burbuja">💖</span>
     </div>
     
-    <div class="hero-card">
+    <div class="hero-card">   
       <div class="badge-brillo">✨ Un refugio lleno de amor ✨</div>
       <h1>Patitas Felices 🐾</h1>
       <p>El lugar donde nacen las historias de amor más bonitas de cuatro patas.</p>
-      <button class="btn-principal" onclick="cambiarVista('vista-inicio', 'vista-catalogo')">
+      <button class="btn-principal" onclick="irA('vista-catalogo')">
         ¡Explorar Mascotas! 💖
       </button>
     </div>
@@ -30,16 +40,6 @@
 
   <!-- ==================== VISTA 2: CATÁLOGO DE MASCOTAS ==================== -->
   <section id="vista-catalogo" class="pantalla-completa vista-oculta">
-    <!-- Navegación superior -->
-    <header class="navbar">
-      <div class="logo" onclick="cambiarVista('vista-catalogo', 'vista-inicio')">🐾 Patitas Felices</div>
-      <nav class="nav-links">
-        <button class="nav-btn activo" onclick="cambiarVista('vista-catalogo', 'vista-catalogo')">Mascotas</button>
-        <button class="nav-btn" onclick="cambiarVista('vista-catalogo', 'vista-proceso')">¿Cómo adoptar?</button>
-        <button class="nav-btn" onclick="cambiarVista('vista-catalogo', 'vista-visita')">Solicitar visita</button>
-      </nav>
-    </header>
-
     <div class="contenido-vista">
       <h2 class="titulo-bonito">Conoce a tus próximos mejores amigos 🎀</h2>
       <p class="subtitulo-bonito">Toca cualquier tarjeta para ver su perfil completo</p>
@@ -79,10 +79,10 @@
           <span class="btn-ver-mas">Conóceme más 🐾</span>
         </article>
 
-        <article class="tarjeta-perro tarjeta-ultima" onclick="verDetalle('Azúcar', 'Perro (Chihuahua)', '1 año', 'Azúcar es una perrita muy especial: es súper cariñosa cuando entra en confianza y le das amor, ¡pero ten cuidado si no la tratas bien porque saca su carácter fuerte! 🌶️', 'azucar.png', 'Chihuahua')">
+        <article class="tarjeta-perro tarjeta-ultima" onclick="verDetalle('Azúcar', 'Perro (Chihuahua)', '1 año', 'Azúcar es una perrita muy especial: es súper cariñosa cuando entra en confianza y le das amor, ¡pero ten cuidado si no la tratas bien porque saca su carácter fuerte! 🌶', 'azucar.png', 'Chihuahua')">
           <div class="badge-foto">¡Adóptame! 💕</div>
           <img src="azucar.png" alt="Azúcar Chihuahua">
-          <h3>Azúcar 🌶️️</h3>
+          <h3>Azúcar 🌶</h3>
           <p class="raza">Perro • Chihuahua</p>
           <span class="btn-ver-mas">Conóceme más 🐾</span>
         </article>
@@ -93,21 +93,23 @@
 
   <!-- ==================== VISTA 3: DETALLE DE MASCOTA ==================== -->
   <section id="vista-detalle" class="pantalla-completa vista-oculta">
-    <div class="detalle-card">
-      <button class="btn-regresar" onclick="cambiarVista('vista-detalle', 'vista-catalogo')">← Volver al catálogo</button>
-      <div class="detalle-grid">
-        <div class="detalle-img-container">
-          <img id="det-img" src="" alt="Mascota">
-        </div>
-        <div class="detalle-info">
-          <span class="badge-edad" id="det-edad">1 año</span>
-          <h2 id="det-nombre">Nombre</h2>
-          <p class="det-especie" id="det-especie">Especie</p>
-          <p class="det-descripcion" id="det-descripcion">Descripción detallada...</p>
+    <div class="contenido-vista">
+      <div class="detalle-card">
+        <button class="btn-regresar" onclick="irA('vista-catalogo')">← Volver al catálogo</button>
+        <div class="detalle-grid">
+          <div class="detalle-img-container">
+            <img id="det-img" src="" alt="Mascota">
+          </div>
+          <div class="detalle-info">
+            <span class="badge-edad" id="det-edad">1 año</span>
+            <h2 id="det-nombre">Nombre</h2>
+            <p class="det-especie" id="det-especie">Especie</p>
+            <p class="det-descripcion" id="det-descripcion">Descripción detallada...</p>
 
-          <button class="btn-principal" onclick="solicitarVisitaDirecta()">
-            ¡Quiero conocer en persona! 💌
-          </button>
+            <button class="btn-principal" onclick="irA('vista-visita')">
+              ¡Quiero conocer en persona! 💌
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -115,15 +117,6 @@
 
   <!-- ==================== VISTA 4: CÓMO ADOPTAR ==================== -->
   <section id="vista-proceso" class="pantalla-completa vista-oculta">
-    <header class="navbar">
-      <div class="logo" onclick="cambiarVista('vista-proceso', 'vista-inicio')">🐾 Patitas Felices</div>
-      <nav class="nav-links">
-        <button class="nav-btn" onclick="cambiarVista('vista-proceso', 'vista-catalogo')">Mascotas</button>
-        <button class="nav-btn activo" onclick="cambiarVista('vista-proceso', 'vista-proceso')">¿Cómo adoptar?</button>
-        <button class="nav-btn" onclick="cambiarVista('vista-proceso', 'vista-visita')">Solicitar visita</button>
-      </nav>
-    </header>
-
     <div class="contenido-vista">
       <h2 class="titulo-bonito">Proceso de Adopción 🐾</h2>
       <p class="subtitulo-bonito">Sigue estos sencillos pasos para darle un hogar a tu nuevo compañero</p>
@@ -155,15 +148,6 @@
 
   <!-- ==================== VISTA 5: FORMULARIO Y CONTACTO ==================== -->
   <section id="vista-visita" class="pantalla-completa vista-oculta">
-    <header class="navbar">
-      <div class="logo" onclick="cambiarVista('vista-visita', 'vista-inicio')">🐾 Patitas Felices</div>
-      <nav class="nav-links">
-        <button class="nav-btn" onclick="cambiarVista('vista-visita', 'vista-catalogo')">Mascotas</button>
-        <button class="nav-btn" onclick="cambiarVista('vista-visita', 'vista-proceso')">¿Cómo adoptar?</button>
-        <button class="nav-btn activo" onclick="cambiarVista('vista-visita', 'vista-visita')">Solicitar visita</button>
-      </nav>
-    </header>
-
     <div class="contenido-vista">
       <div id="contenedor-form" class="card-formulario">
         <h2 class="titulo-bonito">Agenda una visita guiada ✨</h2>
@@ -183,7 +167,7 @@
           <span>o llena el formulario</span>
         </div>
 
-        <!-- Formulario principal con teléfono y dirección integrados -->
+        <!-- Formulario principal -->
         <form id="form-visita" onsubmit="enviarSolicitud(event)">
           <div class="input-group">
             <label for="nombre">Tu nombre completo</label>
@@ -195,7 +179,6 @@
             <input type="email" id="correo" placeholder="hola@ejemplo.com" required>
           </div>
 
-          <!-- Fila de dos columnas para Teléfono y Dirección -->
           <div class="form-row-2">
             <div class="input-group">
               <label for="telefono">Teléfono</label>
@@ -210,7 +193,6 @@
           <button type="submit" class="btn-principal">Enviar Solicitud 💕</button>
         </form>
 
-        <!-- Datos rápidos informativos al pie -->
         <div class="info-rapida-contacto">
           <p>📌 <strong>Dirección:</strong> Av. Las Mascotas #123, Col. Animal</p>
           <p>📱 <strong>Teléfono:</strong> +52 722 770 0967</p>
@@ -219,24 +201,84 @@
     </div>
   </section>
 
-  <!-- Lógica JavaScript para cambiar entre pantallas -->
+  <!-- ==================== FOOTER GLOBAL (ÚNICO) ==================== -->
+  <footer class="site-footer" id="footer-global" style="display: none;">
+    <div class="footer-contenido">
+      <div class="footer-col brand-col">
+        <h3>Patitas Felices 🐾</h3>
+        <p>Un refugio lleno de amor dedicado a dar una segunda oportunidad a quienes más lo necesitan.</p>
+      </div>
+
+      <div class="footer-col links-col">
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="#" onclick="irA('vista-inicio'); return false;">Inicio</a></li>
+          <li><a href="#" onclick="irA('vista-catalogo'); return false;">Mascotas</a></li>
+          <li><a href="#" onclick="irA('vista-proceso'); return false;">¿Cómo adoptar?</a></li>
+          <li><a href="#" onclick="irA('vista-visita'); return false;">Solicitar visita</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col contacto-col">
+        <h4>Contacto</h4>
+        <p>📍 Av. Las Mascotas #123, Col. Animal</p>
+        <p>📞 +52 722 770 0967</p>
+        <p>✉️ contacto@patitasfelices.org</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 Todos los derechos reservados | <strong>Cecytem Plantel Metepec 2</strong></p>
+    </div>
+  </footer>
+
+  <!-- Script Único de Navegación -->
   <script>
-    function cambiarVista(idActual, idDestino) {
-      const actual = document.getElementById(idActual);
-      const destino = document.getElementById(idDestino);
+    function irA(idDestino) {
+      const vistaActual = document.querySelector('.pantalla-completa.vista-activa');
+      const vistaDestino = document.getElementById(idDestino);
 
-      actual.classList.add('animar-salida');
-      
-      setTimeout(() => {
-        actual.classList.remove('vista-activa', 'animar-salida');
-        actual.classList.add('vista-oculta');
+      if (!vistaDestino || vistaActual === vistaDestino) return;
 
-        destino.classList.remove('vista-oculta');
-        destino.classList.add('vista-activa', 'animar-entrada');
-
+      if (vistaActual) {
+        vistaActual.classList.add('animar-salida');
         setTimeout(() => {
-          destino.classList.remove('animar-entrada');
-        }, 500);
+          vistaActual.classList.remove('vista-activa', 'animar-salida');
+          vistaActual.classList.add('vista-oculta');
+
+          mostrarDestino(vistaDestino, idDestino);
+        }, 250);
+      } else {
+        mostrarDestino(vistaDestino, idDestino);
+      }
+    }
+
+    function mostrarDestino(vistaDestino, idDestino) {
+      vistaDestino.classList.remove('vista-oculta');
+      vistaDestino.classList.add('vista-activa', 'animar-entrada');
+
+      const navbar = document.getElementById('navbar-global');
+      const footer = document.getElementById('footer-global');
+
+      // Ocultar Navbar y Footer en la pantalla de Bienvenida (Inicio)
+      if (idDestino === 'vista-inicio') {
+        navbar.style.display = 'none';
+        footer.style.display = 'none';
+      } else {
+        navbar.style.display = 'flex';
+        footer.style.display = 'block';
+      }
+
+      // Actualizar estado de botones del Navbar
+      document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('activo'));
+      if (idDestino === 'vista-catalogo') document.getElementById('btn-nav-catalogo')?.classList.add('activo');
+      if (idDestino === 'vista-proceso') document.getElementById('btn-nav-proceso')?.classList.add('activo');
+      if (idDestino === 'vista-visita') document.getElementById('btn-nav-visita')?.classList.add('activo');
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      setTimeout(() => {
+        vistaDestino.classList.remove('animar-entrada');
       }, 400);
     }
 
@@ -248,11 +290,7 @@
       document.getElementById('det-img').src = imagen;
       document.getElementById('det-img').alt = alt;
 
-      cambiarVista('vista-catalogo', 'vista-detalle');
-    }
-
-    function solicitarVisitaDirecta() {
-      cambiarVista('vista-detalle', 'vista-visita');
+      irA('vista-detalle');
     }
 
     function enviarSolicitud(event) {
@@ -267,7 +305,7 @@
           <span class="icono-exito">🎉💖</span>
           <h2>¡Solicitud enviada con éxito!</h2>
           <p>Muchas gracias, <strong>${nombre}</strong>. Nos pondremos en contacto contigo al correo <strong>${correo}</strong> o al teléfono <strong>${telefono}</strong> muy pronto para recibirte en el refugio.</p>
-          <button class="btn-principal" onclick="cambiarVista('vista-visita', 'vista-catalogo')">Volver a las mascotas 🐾</button>
+          <button class="btn-principal" onclick="irA('vista-catalogo')">Volver a las mascotas 🐾</button>
         </div>
       `;
     }
