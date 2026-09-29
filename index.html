@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Refugio de Amor - Patitas Felices</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- ==================== VISTA 1: INICIO / WELCOME ==================== -->
+  <section id="vista-inicio" class="pantalla-completa vista-activa">
+    <div class="decoracion-burbujas">
+      <span class="burbuja">🌸</span>
+      <span class="burbuja">🐾</span>
+      <span class="burbuja">✨</span>
+      <span class="burbuja">💖</span>
+    </div>
+    
+    <div class="hero-card">
+      <div class="badge-brillo">✨ Un refugio lleno de amor ✨</div>
+      <h1>Patitas Felices 🐾</h1>
+      <p>El lugar donde nacen las historias de amor más bonitas de cuatro patas.</p>
+      <button class="btn-principal" onclick="cambiarVista('vista-inicio', 'vista-catalogo')">
+        ¡Explorar Mascotas! 💖
+      </button>
+    </div>
+  </section>
+
+  <!-- ==================== VISTA 2: CATÁLOGO DE MASCOTAS ==================== -->
+  <section id="vista-catalogo" class="pantalla-completa vista-oculta">
+    <!-- Navegación superior -->
+    <header class="navbar">
+      <div class="logo" onclick="cambiarVista('vista-catalogo', 'vista-inicio')">🐾 Patitas Felices</div>
+      <nav class="nav-links">
+        <button class="nav-btn activo" onclick="cambiarVista('vista-catalogo', 'vista-catalogo')">Mascotas</button>
+        <button class="nav-btn" onclick="cambiarVista('vista-catalogo', 'vista-proceso')">¿Cómo adoptar?</button>
+        <button class="nav-btn" onclick="cambiarVista('vista-catalogo', 'vista-visita')">Solicitar visita</button>
+      </nav>
+    </header>
+
+    <div class="contenido-vista">
+      <h2 class="titulo-bonito">Conoce a tus próximos mejores amigos 🎀</h2>
+      <p class="subtitulo-bonito">Toca cualquier tarjeta para ver su perfil completo</p>
+
+      <!-- Galería con tarjetas de perritos -->
+      <div class="galeria-grid">
+        
+        <article class="tarjeta-perro" onclick="verDetalle('Sky', 'Perro (Chihuahua)', '1 año', 'Sky es una cachorrita llena de luz y dulzura. Le encantan los mimos en la pancita, jugar con moñitos y tomar la siesta bajo el sol. ¡Es perfecta para llenar tu hogar de sonrisas!', 'sky.png', 'Chihuahua color gris azulado')">
+          <div class="badge-foto">¡Adóptame! 💕</div>
+          <img src="sky.png" alt="Sky Chihuahua">
+          <h3>Sky 🌸</h3>
+          <p class="raza">Perro • Chihuahua</p>
+          <span class="btn-ver-mas">Conóceme más 🐾</span>
+        </article>
+
+        <article class="tarjeta-perro" onclick="verDetalle('Canela', 'Perro (Dachshund / Salchicha)', '1 año', 'Canela es súper juguetona y tierna. Amante de las carreras en el jardín y de acurrucarse en las cobijas calientitas en las tardes de cine.', 'canela.png', 'Cachorro salchicha')">
+          <div class="badge-foto">¡Adóptame! 💕</div>
+          <img src="canela.png" alt="Canela Salchicha">
+          <h3>Canela 🍯</h3>
+          <p class="raza">Perro • Salchicha</p>
+          <span class="btn-ver-mas">Conóceme más 🐾</span>
+        </article>
+
+        <article class="tarjeta-perro" onclick="verDetalle('Chicharrón', 'Perro (Pug)', '1 año', 'Chicharrón es un noble perrito que enamora a todos con su carita curiosa. Muy tranquilo, educado y sobre todo fiel compañero.', 'chicarron.png', 'Cachorro Pug')">
+          <div class="badge-foto">¡Adóptame! 💕</div>
+          <img src="chicarron.png" alt="Chicharrón Pug">
+          <h3>Chicharrón 🐖</h3>
+          <p class="raza">Perro • Pug</p>
+          <span class="btn-ver-mas">Conóceme más 🐾</span>
+        </article>
+
+        <article class="tarjeta-perro" onclick="verDetalle('Bombón', 'Perro (Mestizo)', '1 año', 'Bombón es un perrito súper inteligente y carismático. Se lleva excelente con otros perritos y le encantan los paseos al aire libre.', 'bombón.png', 'Cachorro mestizo')">
+          <div class="badge-foto">¡Adóptame! 💕</div>
+          <img src="bombón.png" alt="Bombón Mestizo">
+          <h3>Bombón ✨</h3>
+          <p class="raza">Perro • Mestizo</p>
+          <span class="btn-ver-mas">Conóceme más 🐾</span>
+        </article>
+
+        <article class="tarjeta-perro tarjeta-ultima" onclick="verDetalle('Azúcar', 'Perro (Chihuahua)', '1 año', 'Azúcar es una perrita muy especial: es súper cariñosa cuando entra en confianza y le das amor, ¡pero ten cuidado si no la tratas bien porque saca su carácter fuerte! 🌶️', 'azucar.png', 'Chihuahua')">
+          <div class="badge-foto">¡Adóptame! 💕</div>
+          <img src="azucar.png" alt="Azúcar Chihuahua">
+          <h3>Azúcar 🌶️️</h3>
+          <p class="raza">Perro • Chihuahua</p>
+          <span class="btn-ver-mas">Conóceme más 🐾</span>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== VISTA 3: DETALLE DE MASCOTA ==================== -->
+  <section id="vista-detalle" class="pantalla-completa vista-oculta">
+    <div class="detalle-card">
+      <button class="btn-regresar" onclick="cambiarVista('vista-detalle', 'vista-catalogo')">← Volver al catálogo</button>
+      <div class="detalle-grid">
+        <div class="detalle-img-container">
+          <img id="det-img" src="" alt="Mascota">
+        </div>
+        <div class="detalle-info">
+          <span class="badge-edad" id="det-edad">1 año</span>
+          <h2 id="det-nombre">Nombre</h2>
+          <p class="det-especie" id="det-especie">Especie</p>
+          <p class="det-descripcion" id="det-descripcion">Descripción detallada...</p>
+
+          <button class="btn-principal" onclick="solicitarVisitaDirecta()">
+            ¡Quiero conocer en persona! 💌
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== VISTA 4: CÓMO ADOPTAR ==================== -->
+  <section id="vista-proceso" class="pantalla-completa vista-oculta">
+    <header class="navbar">
+      <div class="logo" onclick="cambiarVista('vista-proceso', 'vista-inicio')">🐾 Patitas Felices</div>
+      <nav class="nav-links">
+        <button class="nav-btn" onclick="cambiarVista('vista-proceso', 'vista-catalogo')">Mascotas</button>
+        <button class="nav-btn activo" onclick="cambiarVista('vista-proceso', 'vista-proceso')">¿Cómo adoptar?</button>
+        <button class="nav-btn" onclick="cambiarVista('vista-proceso', 'vista-visita')">Solicitar visita</button>
+      </nav>
+    </header>
+
+    <div class="contenido-vista">
+      <h2 class="titulo-bonito">Proceso de Adopción 🐾</h2>
+      <p class="subtitulo-bonito">Sigue estos sencillos pasos para darle un hogar a tu nuevo compañero</p>
+
+      <div class="pasos-rosa">
+        <div class="paso-item">
+          <div class="paso-icono">1️⃣</div>
+          <h3>Explora</h3>
+          <p>Conoce los perfiles de nuestros rescatados y encuentra tu match ideal.</p>
+        </div>
+        <div class="paso-item">
+          <div class="paso-icono">2️⃣</div>
+          <h3>Solicita</h3>
+          <p>Agenda una visita guiada a nuestro refugio para convivir en persona.</p>
+        </div>
+        <div class="paso-item">
+          <div class="paso-icono">3️⃣</div>
+          <h3>Entrevista</h3>
+          <p>Charlamos contigo para asegurarnos de que el hogar sea ideal para la mascota.</p>
+        </div>
+        <div class="paso-item">
+          <div class="paso-icono">4️⃣</div>
+          <h3>¡Bienvenido!</h3>
+          <p>Firma la responsiva de adopción y lleva a tu nuevo amigo a casa.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== VISTA 5: FORMULARIO Y CONTACTO ==================== -->
+  <section id="vista-visita" class="pantalla-completa vista-oculta">
+    <header class="navbar">
+      <div class="logo" onclick="cambiarVista('vista-visita', 'vista-inicio')">🐾 Patitas Felices</div>
+      <nav class="nav-links">
+        <button class="nav-btn" onclick="cambiarVista('vista-visita', 'vista-catalogo')">Mascotas</button>
+        <button class="nav-btn" onclick="cambiarVista('vista-visita', 'vista-proceso')">¿Cómo adoptar?</button>
+        <button class="nav-btn activo" onclick="cambiarVista('vista-visita', 'vista-visita')">Solicitar visita</button>
+      </nav>
+    </header>
+
+    <div class="contenido-vista">
+      <div id="contenedor-form" class="card-formulario">
+        <h2 class="titulo-bonito">Agenda una visita guiada ✨</h2>
+        <p class="subtitulo-bonito">Escríbenos o contáctanos directamente por teléfono o mapa</p>
+
+        <!-- Botones de contacto directo -->
+        <div class="acciones-contacto">
+          <a href="tel:+527227700967" class="btn-contacto btn-telefono">
+            📞 Llamar por Teléfono
+          </a>
+          <a href="https://maps.google.com/?q=Refugio+de+Mascotas" target="_blank" rel="noopener noreferrer" class="btn-contacto btn-direccion">
+            📍 Ver Ubicación en Mapa
+          </a>
+        </div>
+
+        <div class="divisor-o">
+          <span>o llena el formulario</span>
+        </div>
+
+        <!-- Formulario principal con teléfono y dirección integrados -->
+        <form id="form-visita" onsubmit="enviarSolicitud(event)">
+          <div class="input-group">
+            <label for="nombre">Tu nombre completo</label>
+            <input type="text" id="nombre" placeholder="Ej. María López" required>
+          </div>
+
+          <div class="input-group">
+            <label for="correo">Tu correo electrónico</label>
+            <input type="email" id="correo" placeholder="hola@ejemplo.com" required>
+          </div>
+
+          <!-- Fila de dos columnas para Teléfono y Dirección -->
+          <div class="form-row-2">
+            <div class="input-group">
+              <label for="telefono">Teléfono</label>
+              <input type="tel" id="telefono" placeholder="Ej. 555-1234" required>
+            </div>
+            <div class="input-group">
+              <label for="direccion">Dirección / Ciudad</label>
+              <input type="text" id="direccion" placeholder="Ej. Av. Principal #123" required>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-principal">Enviar Solicitud 💕</button>
+        </form>
+
+        <!-- Datos rápidos informativos al pie -->
+        <div class="info-rapida-contacto">
+          <p>📌 <strong>Dirección:</strong> Av. Las Mascotas #123, Col. Animal</p>
+          <p>📱 <strong>Teléfono:</strong> +52 722 770 0967</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lógica JavaScript para cambiar entre pantallas -->
+  <script>
+    function cambiarVista(idActual, idDestino) {
+      const actual = document.getElementById(idActual);
+      const destino = document.getElementById(idDestino);
+
+      actual.classList.add('animar-salida');
+      
+      setTimeout(() => {
+        actual.classList.remove('vista-activa', 'animar-salida');
+        actual.classList.add('vista-oculta');
+
+        destino.classList.remove('vista-oculta');
+        destino.classList.add('vista-activa', 'animar-entrada');
+
+        setTimeout(() => {
+          destino.classList.remove('animar-entrada');
+        }, 500);
+      }, 400);
+    }
+
+    function verDetalle(nombre, especie, edad, descripcion, imagen, alt) {
+      document.getElementById('det-nombre').innerText = nombre;
+      document.getElementById('det-especie').innerText = especie;
+      document.getElementById('det-edad').innerText = edad;
+      document.getElementById('det-descripcion').innerText = descripcion;
+      document.getElementById('det-img').src = imagen;
+      document.getElementById('det-img').alt = alt;
+
+      cambiarVista('vista-catalogo', 'vista-detalle');
+    }
+
+    function solicitarVisitaDirecta() {
+      cambiarVista('vista-detalle', 'vista-visita');
+    }
+
+    function enviarSolicitud(event) {
+      event.preventDefault();
+      const nombre = document.getElementById('nombre').value;
+      const correo = document.getElementById('correo').value;
+      const telefono = document.getElementById('telefono').value;
+      const contenedor = document.getElementById('contenedor-form');
+
+      contenedor.innerHTML = `
+        <div class="exito-animado">
+          <span class="icono-exito">🎉💖</span>
+          <h2>¡Solicitud enviada con éxito!</h2>
+          <p>Muchas gracias, <strong>${nombre}</strong>. Nos pondremos en contacto contigo al correo <strong>${correo}</strong> o al teléfono <strong>${telefono}</strong> muy pronto para recibirte en el refugio.</p>
+          <button class="btn-principal" onclick="cambiarVista('vista-visita', 'vista-catalogo')">Volver a las mascotas 🐾</button>
+        </div>
+      `;
+    }
+  </script>
+</body>
+</html>
